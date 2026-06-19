@@ -1,0 +1,23 @@
+paths:
+  /api/login:
+    post:
+      description: Login endpoint
+
+      requestBody:
+        username: string
+        password: string
+
+      valid_credentials:
+        username: testuser
+        password: Test123!
+
+      responses:
+
+        200:
+          description: Login successful
+
+        400:
+          description: Password required
+
+        401:
+          description: Invalid credentials
