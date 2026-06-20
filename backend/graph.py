@@ -24,24 +24,3 @@ builder.add_edge("email_agent",END)
 
 graph = builder.compile()
 
-response = graph.invoke(
-    {
-        "requirement":"Login API should reject invalid password",
-         "api_spec":
-          """paths:
-             /api/login:
-               post:
-                 responses:
-
-                  200:
-                    Login successful
-
-                  400:
-                    Password required
-
-                  401:
-                    Invalid credentials"""
-    }
-)
-
-print(response)
