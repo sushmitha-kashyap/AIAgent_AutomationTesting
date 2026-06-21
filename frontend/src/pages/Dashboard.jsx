@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Navbar from "../components/Navbar";
 import InputCard from "../components/InputCard";
 import ApiSpecCard from "../components/ApiSpecCard";
@@ -7,6 +9,13 @@ import ReportCard from "../components/ReportCard";
 import EmailStatusCard from "../components/EmailStatusCard";
 
 function Dashboard() {
+
+  const [apiSpec, setApiSpec] = useState("");
+  const [testCases, setTestCases] = useState([]);
+  const [results, setResults] = useState([]);
+  const [report, setReport] = useState("");
+  const [emailStatus, setEmailStatus] = useState("");
+
   return (
     <div className="min-h-screen bg-slate-100">
 
@@ -14,17 +23,23 @@ function Dashboard() {
 
       <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
 
-        <InputCard />
+        <InputCard
+          setApiSpec={setApiSpec}
+          setTestCases={setTestCases}
+          setResults={setResults}
+          setReport={setReport}
+          setEmailStatus={setEmailStatus}
+        />
 
-        <ApiSpecCard />
+        <ApiSpecCard apiSpec={apiSpec} />
 
-        <TestCaseTable />
+        <TestCaseTable testCases={testCases} />
 
-        <ResultTable />
+        <ResultTable results={results} />
 
-        <ReportCard />
+        <ReportCard report={report} />
 
-        <EmailStatusCard />
+        <EmailStatusCard emailStatus={emailStatus} />
 
       </div>
 
