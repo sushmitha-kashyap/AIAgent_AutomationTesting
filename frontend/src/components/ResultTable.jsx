@@ -1,5 +1,7 @@
-function ResultTable() {
+function ResultTable({ results }) {
+
   return (
+
     <div className="bg-white rounded-xl shadow p-8">
 
       <h2 className="text-2xl font-semibold mb-5">
@@ -8,22 +10,36 @@ function ResultTable() {
 
       <table className="w-full">
 
-        <thead className="border-b">
-
+        <thead>
           <tr>
-
-            <th className="text-left p-3">Scenario</th>
-            <th className="text-left p-3">Expected</th>
-            <th className="text-left p-3">Actual</th>
-            <th className="text-left p-3">Status</th>
-
+            <th>Scenario</th>
+            <th>Expected</th>
+            <th>Actual</th>
+            <th>Status</th>
           </tr>
-
         </thead>
+
+        <tbody>
+
+          {results.map((r,index)=>(
+
+            <tr key={index}>
+
+              <td>{r.scenario}</td>
+              <td>{r.expected_status}</td>
+              <td>{r.actual_status}</td>
+              <td>{r.status}</td>
+
+            </tr>
+
+          ))}
+
+        </tbody>
 
       </table>
 
     </div>
+
   );
 }
 

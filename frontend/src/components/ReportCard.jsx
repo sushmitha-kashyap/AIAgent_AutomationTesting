@@ -1,5 +1,7 @@
-function ReportCard() {
+function ReportCard({ report }) {
+
   return (
+
     <div className="bg-white rounded-xl shadow p-8">
 
       <h2 className="text-2xl font-semibold mb-5">
@@ -8,11 +10,12 @@ function ReportCard() {
 
       <div className="bg-slate-100 p-5 rounded-lg whitespace-pre-wrap">
 
-        Report will appear here
+        {report || "Report will appear here"}
 
       </div>
 
     </div>
+
   );
 }
 
