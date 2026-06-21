@@ -1,20 +1,32 @@
 import { useState } from "react";
 import axios from "axios";
 
-function InputCard() {
+function InputCard({
+  setApiSpec,
+  setTestCases,
+  setResults,
+  setReport,
+  setEmailStatus
+}) {
 
   const [swaggerUrl, setSwaggerUrl] = useState("");
   const [requirement, setRequirement] = useState("");
 
   const runTests = async () => {
 
-    await axios.post(
-      "http://127.0.0.1:8000/run-tests",
-      {
-        swagger_url: swaggerUrl,
-        requirement
-      }
-    );
+    const response = await axios.post(
+   "http://127.0.0.1:8000/run-tests",
+    {
+    swagger_url: swaggerUrl,
+    requirement
+    }
+);
+
+setApiSpec(response.data.api_spec);
+setTestCases(response.data.test_cases);
+setResults(response.data.results);
+setReport(response.data.report);
+setEmailStatus(response.data.email_status);
 
   };
 

@@ -1,4 +1,5 @@
-function ApiSpecCard() {
+function ApiSpecCard({ apiSpec }) {
+
   return (
     <div className="bg-white rounded-xl shadow p-8">
 
@@ -7,7 +8,9 @@ function ApiSpecCard() {
       </h2>
 
       <pre className="whitespace-pre-wrap text-sm">
-        API spec will appear here
+
+        {apiSpec || "API spec will appear here"}
+
       </pre>
 
     </div>
