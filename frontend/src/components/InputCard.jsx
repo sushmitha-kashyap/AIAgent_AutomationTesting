@@ -15,7 +15,6 @@ function InputCard({
   async function handleSubmit() {
     try {
       setLoading(true);
-
       const response = await axios.post(
         "http://127.0.0.1:8000/run-tests",
         {
@@ -23,7 +22,6 @@ function InputCard({
           requirement: requirement,
         }
       );
-
       setApiSpec(response.data.api_spec);
       setTestCases(response.data.test_cases);
       setResults(response.data.results);
@@ -36,17 +34,14 @@ function InputCard({
       setLoading(false);
     }
   }
-
   return (
     <div className="bg-white p-6 rounded-xl shadow">
-
       <input
         className="w-full border p-3 rounded mb-4"
         placeholder="Swagger URL"
         value={swaggerUrl}
         onChange={(e) => setSwaggerUrl(e.target.value)}
       />
-
       <textarea
         className="w-full border p-3 rounded mb-4"
         rows="4"
