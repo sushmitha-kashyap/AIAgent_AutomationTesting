@@ -2,10 +2,7 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
-
 def email_agent(state):
-
     report = state["report"]
 
     sender_email = os.getenv("SENDER_EMAIL")
@@ -17,13 +14,10 @@ def email_agent(state):
     msg["From"] = sender_email
     msg["To"] = receiver_email
     msg["Subject"] = "AI Test Execution Report"
-
     msg.attach(
         MIMEText(report, "plain")
     )
-
     try:
-
         with smtplib.SMTP(
                 "smtp.gmail.com",
                 587
@@ -41,11 +35,9 @@ def email_agent(state):
             )
 
             server.send_message(msg)
-
         return {
             "email_status": "Email sent successfully"
         }
-
     except Exception as e:
 
         return {
