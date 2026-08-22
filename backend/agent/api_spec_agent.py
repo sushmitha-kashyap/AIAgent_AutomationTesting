@@ -1,10 +1,8 @@
 import requests
 import yaml
-
 def api_spec_agent(state):
     swagger_url = state["swagger_url"]
     print("Swagger URL =", swagger_url)
-
     response = requests.get(swagger_url)
     print(response.status_code)
     print(response.text[:500])
